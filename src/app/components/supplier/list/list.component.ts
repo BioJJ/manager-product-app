@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { CategoriesService } from 'src/app/categories/services/categories.service';
-import { Categories } from 'src/app/shared/models/categories.model';
+import { SuppliersService } from 'src/app/suppliers/services/suppliers.service';
+import { Supplier } from 'src/app/shared/models/supplier.model';
 import { UserToken } from 'src/app/shared/models/user-token.model';
 
 @Component({
-  selector: 'app-list-category',
+  selector: 'app-list-supplier',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  category: Categories[] = [];
-  displayedColumns = ['id', 'name', 'description', 'action'];
+  supplier: Supplier[] = [];
+  displayedColumns = ['id', 'name', 'document', 'action'];
 
   constructor(
-    private categoryService: CategoriesService,
-    private loginService: LoginService
+    private readonly supplierService: SuppliersService,
+    private readonly loginService: LoginService
   ) {}
 
   get usuarioLogado(): UserToken | null {
@@ -23,8 +23,8 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryService.read().subscribe((category) => {
-      this.category = category;
+    this.supplierService.read().subscribe((supplier) => {
+      this.supplier = supplier;
     });
   }
 }

@@ -1,27 +1,27 @@
 <mat-card>
-  <mat-card-title>Excluir Usuário</mat-card-title>
+  <mat-card-title>Alterar Fornecedor</mat-card-title>
   <form>
     <mat-form-field>
       <input
         matInput
-        placeholder="description"
-        [value]="category.description"
-        name="description"
+        placeholder="ID"
+        [value]="supplier.id"
+        name="id"
         disabled
       />
     </mat-form-field>
+
     <mat-form-field>
       <input
         matInput
         placeholder="Nome"
-        [value]="category.name"
+        [(ngModel)]="supplier.name"
         name="name"
-        disabled
       />
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="deleteProduct()" color="warn">
-    Excluir
+  <button mat-raised-button (click)="updateProperty()" color="primary">
+    Salvar
   </button>
 
   <button mat-raised-button (click)="cancel()">Cancelar</button>

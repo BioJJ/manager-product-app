@@ -5,10 +5,10 @@ import { UserComponent } from './views/user/user.component';
 import { CreateComponent } from './components/user/create/create.component';
 import { DeleteComponent } from './components/user/delete/delete.component';
 import { UpdateComponent } from './components/user/update/update.component';
-import { CategoryComponent } from './views/category/category.component';
-import { CreateComponent as CreateProperty } from './components/category/create/create.component';
-import { DeleteComponent as DeleteProperty } from './components/category/delete/delete.component';
-import { UpdateComponent as UpdateProperty } from './components/category/update/update.component';
+import { SupplierComponent } from './views/supplier/supplier.component';
+import { CreateComponent as CreateProperty } from './components/supplier/create/create.component';
+import { DeleteComponent as DeleteProperty } from './components/supplier/delete/delete.component';
+import { UpdateComponent as UpdateProperty } from './components/supplier/update/update.component';
 import { ProductComponent } from './views/product/product.component';
 import { CreateComponent as CreateProduct } from './components/product/create/create.component';
 import { DeleteComponent as DeleteProduct } from './components/product/delete/delete.component';
@@ -64,15 +64,15 @@ const routes: Routes = [
 
   // Property Routes
   {
-    path: 'categories',
-    component: CategoryComponent,
+    path: 'suppliers',
+    component: SupplierComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'ADMIN,USER',
     },
   },
   {
-    path: 'categories/create',
+    path: 'suppliers/create',
     component: CreateProperty,
     canActivate: [AuthGuard],
     data: {
@@ -80,7 +80,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'categories/update/:id',
+    path: 'suppliers/update/:id',
     component: UpdateProperty,
     canActivate: [AuthGuard],
     data: {
@@ -88,7 +88,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'categories/delete/:id',
+    path: 'suppliers/delete/:id',
     component: DeleteProperty,
     canActivate: [AuthGuard],
     data: {

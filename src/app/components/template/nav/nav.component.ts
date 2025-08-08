@@ -9,11 +9,16 @@ import { UserToken } from 'src/app/shared/models/user-token.model';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(
+    private readonly router: Router,
+    private readonly loginService: LoginService
+  ) {}
 
   get usuarioLogado(): UserToken | null {
     return this.loginService.usuarioLogado;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    /* TODO document why this method 'ngOnInit' is empty */
+  }
 }

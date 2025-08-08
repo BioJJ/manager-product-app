@@ -20,7 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select'; 
+import { MatSelectModule } from '@angular/material/select';
 // Component site
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
@@ -38,12 +38,12 @@ import { UsersModule } from './users/users.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-// View / Components Category
-import { CategoryComponent } from './views/category/category.component';
-import { ListComponent as ListProperty } from './components/category/list/list.component';
-import { CreateComponent as CreateProperty } from './components/category/create/create.component';
-import { DeleteComponent as DeleteProperty } from './components/category/delete/delete.component';
-import { UpdateComponent as UpdateProperty } from './components/category/update/update.component';
+// View / Components Supplier
+import { SupplierComponent } from './views/supplier/supplier.component';
+import { ListComponent as ListProperty } from './components/supplier/list/list.component';
+import { CreateComponent as CreateProperty } from './components/supplier/create/create.component';
+import { DeleteComponent as DeleteProperty } from './components/supplier/delete/delete.component';
+import { UpdateComponent as UpdateProperty } from './components/supplier/update/update.component';
 
 // View / Components Product
 import { ProductComponent } from './views/product/product.component';
@@ -65,7 +65,7 @@ import { LineComponent } from './components/dashboard/line/line.component';
     CreateComponent,
     DeleteComponent,
     UpdateComponent,
-    CategoryComponent,
+    SupplierComponent,
     ListProperty,
     CreateProperty,
     DeleteProperty,

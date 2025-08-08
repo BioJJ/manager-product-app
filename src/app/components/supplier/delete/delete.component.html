@@ -1,12 +1,13 @@
 <mat-card>
-  <mat-card-title>Alterar Categoria</mat-card-title>
+  <mat-card-title>Excluir Fornecedor</mat-card-title>
   <form>
     <mat-form-field>
       <input
         matInput
-        placeholder="description"
-        [(ngModel)]="category.description"
-        name="description"
+        placeholder="ID"
+        [value]="supplier.id"
+        name="id"
+        disabled
       />
     </mat-form-field>
 
@@ -14,13 +15,14 @@
       <input
         matInput
         placeholder="Nome"
-        [(ngModel)]="category.name"
+        [value]="supplier.name"
         name="name"
+        disabled
       />
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="updateProperty()" color="primary">
-    Salvar
+  <button mat-raised-button (click)="deleteProduct()" color="warn">
+    Excluir
   </button>
 
   <button mat-raised-button (click)="cancel()">Cancelar</button>

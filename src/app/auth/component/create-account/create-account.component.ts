@@ -13,7 +13,7 @@ export class CreateAccountComponent implements OnInit {
     name: '',
     email: '',
     password: '',
-    cargo: '',
+    cpf: '',
     profile: 'USER',
   };
   constructor(private userService: UsersService, private router: Router) {}

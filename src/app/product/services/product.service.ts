@@ -11,7 +11,10 @@ import { Product } from 'src/app/shared/models/product.model';
 })
 export class ProductService {
   baseUrl: string = `${config.default.url}/api/products`;
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
+  constructor(
+    private readonly snackBar: MatSnackBar,
+    private readonly http: HttpClient
+  ) {}
 
   showMessage(msg: string, isError: boolean = false): void {
     this.snackBar.open(msg, 'X', {
@@ -45,7 +48,7 @@ export class ProductService {
 
   readById(id: number): Observable<Product> {
     const url = `${this.baseUrl}/${id}`;
-    console.log(url)
+    console.log(url);
     return this.http.get<Product>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

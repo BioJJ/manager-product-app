@@ -9,17 +9,9 @@ import { UsersService } from 'src/app/users/services/users.service';
 })
 export class ListComponent implements OnInit {
   users: Users[] = [];
-  displayedColumns = [
-    'id',
-    'name',
-    'email',
-    'phone',
-    'profile',
-    'status',
-    'action',
-  ];
+  displayedColumns = ['id', 'name', 'email', 'profile', 'status', 'action'];
 
-  constructor(private userService: UsersService) {}
+  constructor(private readonly userService: UsersService) {}
 
   ngOnInit(): void {
     this.userService.read().subscribe((users) => {

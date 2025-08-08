@@ -9,9 +9,9 @@ import { Product } from 'src/app/shared/models/product.model';
 })
 export class ListComponent implements OnInit {
   product: Product[] = [];
-  displayedColumns = ['id', 'name', 'price', 'category', 'action'];
+  displayedColumns = ['id', 'name', 'price', 'stockQuantity', 'action'];
 
-  constructor(private productService: ProductService) {}
+  constructor(private readonly productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.read().subscribe((product) => {

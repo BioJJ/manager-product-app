@@ -19,6 +19,14 @@
       />
     </mat-form-field>
 
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Quantidade"
+        [(ngModel)]="product.stockQuantity"
+        name="stockQuantity"
+      />
+    </mat-form-field>
   </form>
   <button mat-raised-button (click)="updateProduct()" color="primary">
     Salvar

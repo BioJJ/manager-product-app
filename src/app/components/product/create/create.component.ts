@@ -40,16 +40,17 @@ export class CreateComponent implements OnInit {
 
   product: Product = {
     name: '',
-    price: '',
-    category: this.category,
+    price: 0,
+    stockQuantity: 0,
+    supplierId: 0,
   };
 
   constructor(
-    private productService: ProductService,
-    private loginService: LoginService,
-    private categoryService: CategoriesService,
-    private router: Router,
-    private _formBuilder: FormBuilder
+    private readonly productService: ProductService,
+    private readonly loginService: LoginService,
+    private readonly categoryService: CategoriesService,
+    private readonly router: Router,
+    private readonly _formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -74,20 +75,20 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  onCategoryChange(categoryId: number): void {
-    const selected = this.categories.find(
-      (category) => category.id === categoryId
-    );
-    if (selected) {
-      this.product.category = {
-        id: selected.id,
-        name: selected.name,
-        description: selected.description,
-      };
-    } else {
-      this.product.category = { id: null, name: '', description: '' };
-    }
-  }
+  // onCategoryChange(categoryId: number): void {
+  //   const selected = this.categories.find(
+  //     (category) => category.id === categoryId
+  //   );
+  //   if (selected) {
+  //     this.product.category = {
+  //       id: selected.id,
+  //       name: selected.name,
+  //       description: selected.description,
+  //     };
+  //   } else {
+  //     this.product.category = { id: null, name: '', description: '' };
+  //   }
+  // }
 
   cancel(): void {
     this.router.navigate(['/product']);

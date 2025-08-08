@@ -1,19 +1,15 @@
 <mat-card>
-  <mat-card-title>Novo Fornecedor</mat-card-title>
+  <mat-card-title>Novo Comprador </mat-card-title>
   <form>
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Nome"
-        [(ngModel)]="supplier.name"
-        name="name"
-      />
+      <input matInput placeholder="Nome" [(ngModel)]="buyer.name" name="name" />
     </mat-form-field>
+
     <mat-form-field>
       <input
         matInput
         placeholder="Documento"
-        [(ngModel)]="supplier.document"
+        [(ngModel)]="buyer.document"
         name="document"
       />
     </mat-form-field>
@@ -22,7 +18,7 @@
       <input
         matInput
         placeholder="Endereço"
-        [(ngModel)]="supplier.address"
+        [(ngModel)]="buyer.address"
         name="address"
       />
     </mat-form-field>
@@ -32,7 +28,7 @@
         matInput
         placeholder="E-mail"
         type="email"
-        [(ngModel)]="supplier.email"
+        [(ngModel)]="buyer.email"
         name="email"
       />
     </mat-form-field>
@@ -42,7 +38,7 @@
         matInput
         placeholder="Telefone"
         type="tel"
-        [(ngModel)]="supplier.phone"
+        [(ngModel)]="buyer.phone"
         name="phone"
       />
     </mat-form-field>

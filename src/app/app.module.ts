@@ -52,6 +52,13 @@ import { CreateComponent as CreateProduct } from './components/product/create/cr
 import { DeleteComponent as DeleteProduct } from './components/product/delete/delete.component';
 import { UpdateComponent as UpdateProduct } from './components/product/update/update.component';
 
+// View / Components Buyer
+import { BuyerComponent } from './views/buyer/buyer.component';
+import { ListComponent as ListBuyer } from './components/buyer/list/list.component';
+import { CreateComponent as CreateBuyer } from './components/buyer/create/create.component';
+import { DeleteComponent as DeleteBuyer } from './components/buyer/delete/delete.component';
+import { UpdateComponent as UpdateBuyer } from './components/buyer/update/update.component';
+
 import { httpInterceptorProviders } from './interceptors';
 import { LineComponent } from './components/dashboard/line/line.component';
 @NgModule({
@@ -75,6 +82,11 @@ import { LineComponent } from './components/dashboard/line/line.component';
     CreateProduct,
     DeleteProduct,
     UpdateProduct,
+    BuyerComponent,
+    ListBuyer,
+    CreateBuyer,
+    DeleteBuyer,
+    UpdateBuyer,
     LineComponent,
   ],
   imports: [

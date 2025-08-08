@@ -19,6 +19,35 @@
         name="name"
       />
     </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Endereço"
+        [(ngModel)]="supplier.address"
+        name="address"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="E-mail"
+        type="email"
+        [(ngModel)]="supplier.email"
+        name="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Telefone"
+        type="tel"
+        [(ngModel)]="supplier.phone"
+        name="phone"
+      />
+    </mat-form-field>
   </form>
   <button mat-raised-button (click)="updateProperty()" color="primary">
     Salvar

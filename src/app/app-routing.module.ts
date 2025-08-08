@@ -15,6 +15,10 @@ import { DeleteComponent as DeleteProduct } from './components/product/delete/de
 import { UpdateComponent as UpdateProduct } from './components/product/update/update.component';
 import { LoginRoutes } from './auth/auth-routing.module';
 import { AuthGuard } from './auth/auth.guard';
+import { BuyerComponent } from './views/buyer/buyer.component';
+import { CreateComponent as CreateBuyer } from './components/buyer/create/create.component';
+import { DeleteComponent as DeleteBuyer } from './components/buyer/delete/delete.component';
+import { UpdateComponent as UpdateBuyer } from './components/buyer/update/update.component';
 
 const routes: Routes = [
   {
@@ -62,7 +66,7 @@ const routes: Routes = [
     },
   },
 
-  // Property Routes
+  // Supplier Routes
   {
     path: 'suppliers',
     component: SupplierComponent,
@@ -125,6 +129,40 @@ const routes: Routes = [
   {
     path: 'product/delete/:id',
     component: DeleteProduct,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN',
+    },
+  },
+
+  // Buyer Routes
+  {
+    path: 'buyers',
+    component: BuyerComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,USER',
+    },
+  },
+  {
+    path: 'buyers/create',
+    component: CreateBuyer,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,USER',
+    },
+  },
+  {
+    path: 'buyers/update/:id',
+    component: UpdateBuyer,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN',
+    },
+  },
+  {
+    path: 'buyers/delete/:id',
+    component: DeleteBuyer,
     canActivate: [AuthGuard],
     data: {
       role: 'ADMIN',

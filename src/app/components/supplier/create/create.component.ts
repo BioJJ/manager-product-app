@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { CategoriesService } from 'src/app/categories/services/categories.service';
-import { Categories } from 'src/app/shared/models/categories.model';
+import { SuppliersService } from 'src/app/suppliers/services/suppliers.service';
+import { Supplier } from 'src/app/shared/models/supplier.model';
 import { UserToken } from 'src/app/shared/models/user-token.model';
 import { Users } from 'src/app/shared/models/users.model';
 
@@ -16,16 +16,19 @@ export class CreateComponent implements OnInit {
     id: this.usuarioLogado.id,
   };
 
-  category: Categories = {
-    description: '',
+  supplier: Supplier = {
     name: '',
     id: null,
+    document: '',
+    address: '',
+    phone: '',
+    email: '',
   };
 
   constructor(
-    private categoryService: CategoriesService,
-    private loginService: LoginService,
-    private router: Router
+    private readonly supplierService: SuppliersService,
+    private readonly loginService: LoginService,
+    private readonly router: Router
   ) {}
 
   get usuarioLogado(): UserToken {
@@ -33,17 +36,17 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.category.user.id = this.usuarioLogado.id;
+    // this.supplier.user.id = this.usuarioLogado.id;
   }
 
   createProperty(): void {
-    this.categoryService.create(this.category).subscribe(() => {
-      this.categoryService.showMessage('Categoria criada!');
-      this.router.navigate(['/categories']);
+    this.supplierService.create(this.supplier).subscribe(() => {
+      this.supplierService.showMessage('Fornecedor criada!');
+      this.router.navigate(['/suppliers']);
     });
   }
 
   cancel(): void {
-    this.router.navigate(['/categories']);
+    this.router.navigate(['/suppliers']);
   }
 }

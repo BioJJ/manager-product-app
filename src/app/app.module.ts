@@ -59,6 +59,10 @@ import { CreateComponent as CreateBuyer } from './components/buyer/create/create
 import { DeleteComponent as DeleteBuyer } from './components/buyer/delete/delete.component';
 import { UpdateComponent as UpdateBuyer } from './components/buyer/update/update.component';
 
+// View / Components Order
+import { OrderComponent } from './views/order/order.component';
+import { ListComponent as ListOrder } from './components/order/list/list.component';
+
 import { httpInterceptorProviders } from './interceptors';
 import { LineComponent } from './components/dashboard/line/line.component';
 @NgModule({
@@ -88,6 +92,8 @@ import { LineComponent } from './components/dashboard/line/line.component';
     DeleteBuyer,
     UpdateBuyer,
     LineComponent,
+    OrderComponent,
+    ListOrder
   ],
   imports: [
     AuthModule,

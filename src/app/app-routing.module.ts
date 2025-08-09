@@ -20,6 +20,8 @@ import { CreateComponent as CreateBuyer } from './components/buyer/create/create
 import { DeleteComponent as DeleteBuyer } from './components/buyer/delete/delete.component';
 import { UpdateComponent as UpdateBuyer } from './components/buyer/update/update.component';
 
+import { OrderComponent } from './views/order/order.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -166,6 +168,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       role: 'ADMIN',
+    },
+  },
+
+  // Buyer Order
+  {
+    path: 'orders',
+    component: OrderComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'ADMIN,USER',
     },
   },
   ...LoginRoutes,

@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-title>Alterar Comprador</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="ID"
+        [value]="buyer.id"
+        name="id"
+        disabled
+      />
+    </mat-form-field>
+
+   <mat-form-field>
+      <input matInput placeholder="Nome" [(ngModel)]="buyer.name" name="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Documento"
+        [(ngModel)]="buyer.document"
+        name="document"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Endereço"
+        [(ngModel)]="buyer.address"
+        name="address"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="E-mail"
+        type="email"
+        [(ngModel)]="buyer.email"
+        name="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Telefone"
+        type="tel"
+        [(ngModel)]="buyer.phone"
+        name="phone"
+      />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="updateProperty()" color="primary">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">Cancelar</button>
+</mat-card>

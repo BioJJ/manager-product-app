@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  constructor(private router: Router, private headerService: HeaderService) {
+  constructor(
+    private readonly router: Router,
+    private readonly headerService: HeaderService
+  ) {
     headerService.headerData = {
       title: 'Cadastro de usuario',
       icon: 'person',

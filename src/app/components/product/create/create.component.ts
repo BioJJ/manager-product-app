@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { CategoriesService } from 'src/app/categories/services/categories.service';
+import { SuppliersService } from 'src/app/suppliers/services/suppliers.service';
 import { ProductService } from 'src/app/product/services/product.service';
-import { Categories } from 'src/app/shared/models/categories.model';
+import { Supplier } from 'src/app/shared/models/supplier.model';
 import { Product } from 'src/app/shared/models/product.model';
 import { UserToken } from 'src/app/shared/models/user-token.model';
 import { Users } from 'src/app/shared/models/users.model';
@@ -15,8 +15,8 @@ import { Users } from 'src/app/shared/models/users.model';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
-  categoryGroup = this._formBuilder.group({
-    categoryForm: ['', Validators.required],
+  supplierGroup = this._formBuilder.group({
+    supplierForm: ['', Validators.required],
   });
   valuesGroup = this._formBuilder.group({
     saleValue: ['', Validators.required],
@@ -24,45 +24,49 @@ export class CreateComponent implements OnInit {
   });
   isLinear = true;
 
-  categories: Categories[] = [];
-  selectedCategory: number | null = null;
+  suppliers: Supplier[] = [];
+  selectedSupplier: number | null = null;
 
   user: Users = {
     id: this.usuarioLogado.id,
     name: this.usuarioLogado.name,
   };
 
-  category: Categories = {
+  supplier: Supplier = {
     id: null,
     name: '',
-    description: '',
+    document: '',
+    address: '',
+    phone: '',
+    email: '',
   };
 
   product: Product = {
     name: '',
-    price: '',
-    category: this.category,
+    price: 0,
+    stockQuantity: 0,
+    supplierId: 0,
   };
 
   constructor(
-    private productService: ProductService,
-    private loginService: LoginService,
-    private categoryService: CategoriesService,
-    private router: Router,
-    private _formBuilder: FormBuilder
+    private readonly productService: ProductService,
+    private readonly loginService: LoginService,
+    private readonly supplierService: SuppliersService,
+    private readonly router: Router,
+    private readonly _formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.loadCategories();
+    this.loadSuppliers();
   }
 
   get usuarioLogado(): UserToken {
     return this.loginService.usuarioLogado;
   }
 
-  loadCategories(): void {
-    this.categoryService.read().subscribe((categories) => {
-      this.categories = categories;
+  loadSuppliers(): void {
+    this.supplierService.read().subscribe((suppliers) => {
+      this.suppliers = suppliers;
     });
   }
 
@@ -74,20 +78,20 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  onCategoryChange(categoryId: number): void {
-    const selected = this.categories.find(
-      (category) => category.id === categoryId
-    );
-    if (selected) {
-      this.product.category = {
-        id: selected.id,
-        name: selected.name,
-        description: selected.description,
-      };
-    } else {
-      this.product.category = { id: null, name: '', description: '' };
-    }
-  }
+  // onSupplierChange(supplierId: number): void {
+  //   const selected = this.suppliers.find(
+  //     (supplier) => supplier.id === supplierId
+  //   );
+  //   if (selected) {
+  //     this.product.supplier = {
+  //       id: selected.id,
+  //       name: selected.name,
+  //       description: selected.description,
+  //     };
+  //   } else {
+  //     this.product.supplier = { id: null, name: '', description: '' };
+  //   }
+  // }
 
   cancel(): void {
     this.router.navigate(['/product']);

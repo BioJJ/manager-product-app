@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-title>Alterar Fornecedor</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="ID"
+        [value]="supplier.id"
+        name="id"
+        disabled
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Nome"
+        [(ngModel)]="supplier.name"
+        name="name"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Endereço"
+        [(ngModel)]="supplier.address"
+        name="address"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="E-mail"
+        type="email"
+        [(ngModel)]="supplier.email"
+        name="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Telefone"
+        type="tel"
+        [(ngModel)]="supplier.phone"
+        name="phone"
+      />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="updateProperty()" color="primary">
+    Salvar
+  </button>
+
+  <button mat-raised-button (click)="cancel()">Cancelar</button>
+</mat-card>

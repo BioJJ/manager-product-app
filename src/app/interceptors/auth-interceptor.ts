@@ -11,7 +11,7 @@ import { LoginService } from '../auth/services/login.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private loginService: LoginService) {}
+  constructor(private readonly loginService: LoginService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const token = this.loginService.getAuthorizationToken();

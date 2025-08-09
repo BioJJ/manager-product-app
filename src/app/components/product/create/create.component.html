@@ -18,18 +18,18 @@
       />
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Categoria</mat-label>
+    <!-- <mat-form-field>
+      <mat-label>Quantidade</mat-label>
       <mat-select
-        [(ngModel)]="selectedCategory"
-        name="category"
-        (selectionChange)="onCategoryChange($event.value)"
+        [(ngModel)]="selectedSupplier"
+        name="supplier"
+        (selectionChange)="onSupplierChange($event.value)"
       >
-        <mat-option *ngFor="let category of categories" [value]="category.id">
-          {{ category.name }}
+        <mat-option *ngFor="let supplier of suppliers" [value]="supplier.id">
+          {{ supplier.name }}
         </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
   </form>
   <button mat-raised-button (click)="createProduct()" color="primary">
     Salvar
